@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+.pagination-custom .MuiPaginationItem-root {
+  background-color: #2c2c2e; /* Dark background for pagination items */
+  color: white; /* White text for readability */
+  border: 1px solid #2c2c2e; /* Dark border */
+}
+
+.pagination-custom .MuiPaginationItem-root.Mui-selected {
+  background-color: gold; /* Gold background for the selected page */
+  color: black; /* Dark text on gold background for contrast */
+  border-color: gold; /* Gold border for selected item */
+}
+
+.pagination-custom .MuiPaginationItem-previousNext {
+  background-color: #2c2c2e; /* Dark background for previous/next buttons */
+  color: white; /* White text */
+  border: 1px solid #2c2c2e; /* Dark border */
+}
+
+.pagination-custom .MuiPaginationItem-previousNext.Mui-disabled {
+  color: #6e6e6e; /* Light grey for disabled state */
+}
+
+body {
+  background: url('/images/starfield.png') no-repeat center center fixed;
+  background-size: cover;
+  color: white;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  position: relative;
+  background: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
+  z-index: 50; /* Ensure it is above the content */
+  width: 100%;
+  padding: 1rem 0; /* Adjust padding as needed */
+}
+
+/* Pseudo-element to prevent content visibility under the header */
+header::before {
+  content: '';
+  position: absolute;
+  top: -100px; /* Adjust to cover enough area */
+  left: 0;
+  width: 100%;
+  height: calc(100% + 100px); /* Ensure it covers entire header and extends beyond */
+  background: rgba(0, 0, 0, 0.6); /* Same opacity as the header background */
+  z-index: -1; /* Place it behind the header content */
+}
+
+main {
+  padding: 0 1rem; /* Padding for the main content area */
+}
